@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyGroupManager : MonoBehaviour
+{
+    [SerializeField]
+    GameObject enemyPrefab;
+    List<GameObject> enemies = new List<GameObject>();
+    
+    int enemyCount = 0;
+    [SerializeField]
+    BoxCollider spawnArea;
+    [SerializeField]
+    GameObject enemyGroup;
+    [SerializeField]
+    PlatformEnemyCalculation platformEnemyCalculation;
+
+
+
+    public void setUpEnemies(bool enable, int enemyCount){
+        this.enemyCount = enemyCount;
+        if(enable){
+            platformEnemyCalculation.gameObject.SetActive(true);
+            SpawnEnemies();
+        }else{
+            platformEnemyCalculation.gameObject.SetActive(false);
+        }
+
+    }
+
+    private void SpawnEnemies(){
+
+        for(int i = 0; i < enemyCount; i++){
+            Vector3 spawnPosition = new Vector3(Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x), 0.5f, Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z));
+            GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            enemy.transform.parent = enemyGroup.transform;
+            enemies.Add(enemy);
+        }
+
+    }
+
+}

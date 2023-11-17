@@ -9,17 +9,20 @@ public class PlatformEntryGate : MonoBehaviour
     PlatformEntryCalculation platformEntryCalculation;
     [SerializeField]
     TMPro.TMP_Text textMesh;
+    Calculation calculation;
     private void Awake() {
         platformEntryCalculation = GetComponentInParent<PlatformEntryCalculation>();
     }
 
-    public void SetText(Calculation calculation){
+    public void SetCalculation(Calculation calculation){
+        this.calculation = calculation;
         textMesh.text = calculation.description;
     }
 
 
     private void OnTriggerEnter(Collider other) {
         platformEntryCalculation.gateEntered(leftGate);
+        other.GetComponentInParent<PlayerGroupManager>().GateEntered(calculation);
     }
 
 

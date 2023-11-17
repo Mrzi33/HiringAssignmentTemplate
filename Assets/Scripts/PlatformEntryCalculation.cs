@@ -10,8 +10,8 @@ public class PlatformEntryCalculation : MonoBehaviour
 
     public void setCalculationEntryPoints(Calculation left, Calculation right)
     {
-        leftCalculation.SetText(left);
-        rightCalculation.SetText(right);
+        leftCalculation.SetCalculation(left);
+        rightCalculation.SetCalculation(right);
     }
 
     public void disableCalculation()

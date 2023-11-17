@@ -23,4 +23,5 @@ public class PlayerCharacter : MonoBehaviour
         rb.AddForce(direction * movementSpeed * distance * Time.fixedDeltaTime);
         //rb.position = GetComponentInParent<Transform>().position;
     }
+    
 }

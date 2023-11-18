@@ -13,13 +13,21 @@ public class MainMenu : MonoBehaviour
 
     private void OnGameRestart()
     {
-        this.gameObject.SetActive(true);
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
     }
 
-    public void StartGame(){
-        this.gameObject.SetActive(false);
-        GameManager.Instance.GameStart();
+    public void StartGame(int levelIndex){
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        GameManager.Instance.GameStart(levelIndex);
     }
+
+
 
 
 }

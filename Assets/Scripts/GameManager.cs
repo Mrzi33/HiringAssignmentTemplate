@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnGameStart;
     public UnityEvent OnGameOver;
     public UnityEvent OnGameRestart;
+    public UnityEvent OnGameFinish;
 
     public static GameManager Instance;
+    [SerializeField]
+    List<Level> levels;
+    int currentLevel;
 
     private void Awake() {
         if(Instance != null && Instance != this){
@@ -20,7 +25,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameStart(){
+    public void GameStart(int level){
+        currentLevel = level;
         OnGameStart.Invoke();
         Debug.Log("Game Started");
     }
@@ -33,5 +39,12 @@ public class GameManager : MonoBehaviour
         OnGameOver.Invoke();
     }
 
-    
+    public void GameFinish(){
+        OnGameFinish.Invoke();
+    }
+
+    public Level GetCurrentLevel()
+    {
+        return levels[currentLevel];
+    }
 }

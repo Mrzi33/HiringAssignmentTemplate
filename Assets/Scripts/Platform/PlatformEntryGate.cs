@@ -19,6 +19,7 @@ public class PlatformEntryGate : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other) {
+
         platformEntryCalculation.gateEntered(leftGate);
     }
 

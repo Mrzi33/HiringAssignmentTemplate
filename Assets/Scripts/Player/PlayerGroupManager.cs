@@ -12,11 +12,12 @@ public class PlayerGroupManager : MonoBehaviour
     List<GameObject> playerSideCharacters;
     [SerializeField]
     GameObject sideCharacterGroup;
-    [SerializeField]
-    List<Transform> playerSideCharacterPositions;
+
     [SerializeField]
     Transform mainCharacter;
 
+    [SerializeField]
+    BoxCollider spawnArea;
     public int health = 1;
 
     //create signal when score is 0 or less
@@ -37,6 +38,15 @@ public class PlayerGroupManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        GameManager.Instance.OnGameStart.AddListener(OnGameStart);
+    }
+
+    private void OnGameStart()
+    {
+        health = 1;
+        ManageGroup();
+    }
 
     public void GateEntered(Calculation calculation){
         health = calculation.ApplyCaluclation(health);
@@ -69,8 +79,9 @@ public class PlayerGroupManager : MonoBehaviour
     }
 
     public void SpawnSideCharacter(){
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x), 0.5f, UnityEngine.Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z));
         GameObject newSideCharacter = Instantiate(playerSideCharacterPrefab, sideCharacterGroup.transform);
-        newSideCharacter.transform.position = playerSideCharacterPositions[playerSideCharacters.Count].position;
+        newSideCharacter.transform.position = spawnPosition;
         playerSideCharacters.Add(newSideCharacter);
         newSideCharacter.GetComponent<SpringJoint>().connectedBody = mainCharacter.GetComponent<Rigidbody>();
     }
@@ -81,7 +92,6 @@ public class PlayerGroupManager : MonoBehaviour
         ManageGroup();
         if(health <= 0){
             GameManager.Instance.GameOver();
-            Debug.Log("Game Over");
             return false;
 
         }else{

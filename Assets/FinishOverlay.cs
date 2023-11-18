@@ -2,27 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverOverlay : MonoBehaviour
+public class FinishOverlay : MonoBehaviour
 {
-    
     Animator animator;
     private void Awake() {
         animator = GetComponent<Animator>();
     }
     private void Start() {
-        GameManager.Instance.OnGameOver.AddListener(ShowGameOver);
+        GameManager.Instance.OnGameFinish.AddListener(ShowFinish);
         
     }
 
 
-    public void ShowGameOver(){
+    public void ShowFinish(){
         animator.SetTrigger("Show");
     }
 
     public void OnOverlayEnd(){
-        Debug.Log("Game Over");
         GameManager.Instance.GameRestart();
     }
-
-
 }

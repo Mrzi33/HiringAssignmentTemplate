@@ -26,8 +26,10 @@ public class PlayerMovement : MonoBehaviour
     private void Start() {
         GameManager.Instance.OnGameStart.AddListener(OnGameStart);
         GameManager.Instance.OnGameOver.AddListener(OnGameOver);
+        GameManager.Instance.OnGameFinish.AddListener(OnGameFinish);
     }
 
+    
 
     private void OnGameStart()
     {
@@ -37,8 +39,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnGameOver()
     {
+        StartCoroutine(DisableMoveCoroutine());
+    }
+    private void OnGameFinish()
+    {
+        StartCoroutine(DisableMoveCoroutine());
+    }
+
+    IEnumerator DisableMoveCoroutine(){
+        yield return new WaitForSeconds(1f);
         canMove = false;
     }
+
 
 
     private void Update()

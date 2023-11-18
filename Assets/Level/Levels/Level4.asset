@@ -27,7 +27,7 @@ MonoBehaviour:
     gateEnable: 1
   - calculationLeft: {fileID: 11400000, guid: 0dfde3b4892275d4b97a3e20246096fc, type: 2}
     calculationRight: {fileID: 11400000, guid: 2050d8495d84e6846a45d267907d4f66, type: 2}
-    enemyCount: 0
+    enemyCount: 5
     gateEnable: 1
   - calculationLeft: {fileID: 11400000, guid: d2b0475e7f02dc44bbeddb8af3982192, type: 2}
     calculationRight: {fileID: 11400000, guid: 7a88a48ac18959f4682c52a82eff28d2, type: 2}
@@ -53,8 +53,8 @@ MonoBehaviour:
     calculationRight: {fileID: 11400000, guid: 47cf4af6e7c13ef43b799e6b8dfde54f, type: 2}
     enemyCount: 50
     gateEnable: 1
-  - calculationLeft: {fileID: 11400000, guid: bb591c8fb9eb97c4892b39d78f4c3443, type: 2}
+  - calculationLeft: {fileID: 11400000, guid: 4151ea23e0ca44247b57f70d0999430b, type: 2}
     calculationRight: {fileID: 11400000, guid: 7a88a48ac18959f4682c52a82eff28d2, type: 2}
-    enemyCount: 0
-    gateEnable: 0
+    enemyCount: 12
+    gateEnable: 1
   emptyPlatformCount: 2

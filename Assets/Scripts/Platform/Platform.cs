@@ -22,7 +22,10 @@ public class Platform : MonoBehaviour
 
 
     public void EnemyGateEntered(){
-        PlayerGroupManager.Instance.EnemyGateEntered(enemyCount);
+        bool playerSurvived = PlayerGroupManager.Instance.EnemyGateEntered(enemyCount);
+        if(playerSurvived){
+            enemyGroupManager.DisableEnemies();
+        }
     }
 
     public void SetPlatform(Calculation calculationLeft, Calculation calculationRight, int enemyCount, bool gateEnable)

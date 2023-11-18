@@ -7,6 +7,7 @@ public class PlatformEnemyCalculation : MonoBehaviour
     [SerializeField]
     Platform platform;
     private void OnTriggerEnter(Collider other) {
+        this.gameObject.SetActive(false);
         platform.EnemyGateEntered();
     }
 }

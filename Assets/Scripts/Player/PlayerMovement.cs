@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,27 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float leftSideLimit, rightSideLimit;
 
+    //stop player from moving when game is over
+    public bool canMove = true;
+
+    private void Start() {
+        PlayerGroupManager.Instance.OnScoreChanged += OnScoreChanged;
+    }
+
+    private void OnScoreChanged(bool survived)
+    {
+        if(!survived) canMove = false;
+    }
 
     private void Update()
+    {
+        if(canMove){
+            Move();
+        }
+
+    }
+
+    private void Move()
     {
         Vector3 movement = Vector3.zero;
         movement.x += forwardSpeed;
@@ -31,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position += movement * Time.deltaTime;
         transform.position = new Vector3(transform.position.x,transform.position.y, Mathf.Clamp(transform.position.z, leftSideLimit, rightSideLimit));
-
     }
     
 

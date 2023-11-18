@@ -16,7 +16,12 @@ public class PlayerGroupManager : MonoBehaviour
     [SerializeField]
     Transform mainCharacter;
 
-    int score = 1;
+    public int score = 1;
+
+    //create signal when score is 0 or less
+    public event Action<bool> OnScoreChanged;
+
+
 
 
     //make this classs a singleton
@@ -44,14 +49,14 @@ public class PlayerGroupManager : MonoBehaviour
         //enable side characters based on score, disable the rest
         for (int i = 0; i < groupCount; i++)
         {
-            if(i < score-1){
+            if(i < score){
                 playerSideCharacters[i].SetActive(true);
             }else{
                 playerSideCharacters[i].SetActive(false);
             }
         }
         //spawn new side characters if needed
-        if(groupCount < score-1){
+        if(groupCount < score){
             for (int i = groupCount; i < score; i++)
             {
                 SpawnSideCharacter();
@@ -69,13 +74,19 @@ public class PlayerGroupManager : MonoBehaviour
         newSideCharacter.GetComponent<SpringJoint>().connectedBody = mainCharacter.GetComponent<Rigidbody>();
     }
 
-    internal void EnemyGateEntered(int enemyCount)
+    public bool EnemyGateEntered(int enemyCount)
     {
-        if(enemyCount > score){
+        score -= enemyCount;
+        ManageGroup();
+        if(score <= 0){
+            OnScoreChanged?.Invoke(false);
             Debug.Log("Game Over");
+            return false;
+
         }else{
-            score -= enemyCount;
-            ManageGroup();
+            OnScoreChanged?.Invoke(true);
+            return true;
         }
     }
+    
 }

@@ -40,4 +40,12 @@ public class EnemyGroupManager : MonoBehaviour
 
     }
 
+    public void DisableEnemies(){
+        foreach (var enemy in enemies)
+        {
+            enemy.SetActive(false);
+        }
+    }
+
+
 }

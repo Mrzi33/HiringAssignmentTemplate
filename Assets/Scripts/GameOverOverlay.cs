@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// class for animation of game over overlay
 public class GameOverOverlay : MonoBehaviour
 {
     
@@ -19,6 +20,7 @@ public class GameOverOverlay : MonoBehaviour
         animator.SetTrigger("Show");
     }
 
+    //called on animation end
     public void OnOverlayEnd(){
         Debug.Log("Game Over");
         GameManager.Instance.GameRestart();

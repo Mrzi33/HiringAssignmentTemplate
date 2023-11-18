@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// class managing enemy character pooling
 public class EnemyCharacterManager : MonoBehaviour
 {
 

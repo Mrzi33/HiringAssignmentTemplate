@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// class to trigger player moving to enemy group, triggering check if player has enough health to continue
 public class PlatformEnemyGate : MonoBehaviour
 {
     [SerializeField]

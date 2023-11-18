@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 
-
+//moves the player forward and sideways, movement is disabled on game over or finish
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float leftSideLimit, rightSideLimit;
 
-    //stop player from moving when game is over
     public bool canMove = false;
     Vector3 inicialPosition = Vector3.zero;
 

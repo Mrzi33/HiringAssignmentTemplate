@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// class managing setting up gate calculations and triggering recalculation of player health if player enters a gate
 public class PlatformEntryCalculation : MonoBehaviour
 {
     [SerializeField]

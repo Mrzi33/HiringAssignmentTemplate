@@ -4,19 +4,14 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+// class to cummunicate between the platform parts and the platform manager
 public class Platform : MonoBehaviour
 {
-    [SerializeField]
-    bool enableGate = true;
-    [SerializeField]
-    Calculation leftCalculation, rightCalculation;
     [SerializeField]
 
     PlatformEntryCalculation platformEntryCalculation;
     [SerializeField]
     EnemyGroupManager enemyGroupManager;
-    [SerializeField]
-    int enemyCount = 0;
     [SerializeField]
     Transform starPosition, endPosition;
 
@@ -24,12 +19,8 @@ public class Platform : MonoBehaviour
 
     public void SetPlatform(Calculation calculationLeft, Calculation calculationRight, int enemyCount, bool gateEnable)
     {
-        this.leftCalculation = calculationLeft;
-        this.rightCalculation = calculationRight;
-        this.enemyCount = enemyCount;
-        this.enableGate = gateEnable;
-        if(enableGate){
-            platformEntryCalculation.setCalculationEntryPoints(leftCalculation, rightCalculation);
+        if(gateEnable){
+            platformEntryCalculation.setCalculationEntryPoints(calculationLeft, calculationRight);
             enemyGroupManager.setUpEnemies(true, enemyCount);
         }else{
             platformEntryCalculation.disableGate();

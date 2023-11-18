@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// class to manage the player group, manages pooling, spawning, health
 public class PlayerGroupManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,13 +21,8 @@ public class PlayerGroupManager : MonoBehaviour
     BoxCollider spawnArea;
     public int health = 1;
 
-    //create signal when score is 0 or less
-    public UnityEvent OnHealthChanged;
 
 
-
-
-    //make this classs a singleton
     private static PlayerGroupManager _instance;
     public static PlayerGroupManager Instance { get { return _instance; } }
 
@@ -53,6 +49,7 @@ public class PlayerGroupManager : MonoBehaviour
         ManageGroup();
     }
 
+    //manage the player group based on health, spawn new side characters if needed
     private void ManageGroup(){
         
         int groupCount = playerSideCharacters.Count;
@@ -86,6 +83,8 @@ public class PlayerGroupManager : MonoBehaviour
         newSideCharacter.GetComponent<SpringJoint>().connectedBody = mainCharacter.GetComponent<Rigidbody>();
     }
 
+
+    //called by platform manager with current number of enemies on the platform, checks if player has enough health to continue
     public bool EnemyGateEntered(int enemyCount)
     {
         //health -= enemyCount;
@@ -95,7 +94,6 @@ public class PlayerGroupManager : MonoBehaviour
             return false;
 
         }else{
-            OnHealthChanged?.Invoke();
             return true;
         }
     }

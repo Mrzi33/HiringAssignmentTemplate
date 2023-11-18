@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// class triggering entering player health calculation
 public class PlatformEntryGate : MonoBehaviour
 {
     [SerializeField]

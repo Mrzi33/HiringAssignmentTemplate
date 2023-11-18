@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// class managing the game, levels, game start, game over, game finish
 public class GameManager : MonoBehaviour
 {
 

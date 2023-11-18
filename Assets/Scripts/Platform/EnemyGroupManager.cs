@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//class to manage enemy groups on individual platforms
 public class EnemyGroupManager : MonoBehaviour
 {
 
-    List<GameObject> enemies = new List<GameObject>();
-    
-    int enemyCount = 0;
     [SerializeField]
     BoxCollider spawnArea;
     [SerializeField]
@@ -15,8 +13,11 @@ public class EnemyGroupManager : MonoBehaviour
     [SerializeField]
     PlatformEnemyGate platformEnemyGate;
 
+    List<GameObject> enemies = new List<GameObject>();
+    
+    int enemyCount = 0;
 
-
+    //plaotform sets up the enemy group, if the gate is enabled, it spawns enemies
     public void setUpEnemies(bool enable, int enemyCount){
         this.enemyCount = enemyCount;
         if(enable){

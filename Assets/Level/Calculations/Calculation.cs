@@ -18,7 +18,7 @@ enum CALCULATIONTYPE{
     
 }
 
-
+// class to store calculations to create gates on platforms
 [CreateAssetMenu(fileName = "New Calculation", menuName = "Calculations/Calculation")]
 public class Calculation : ScriptableObject{
     [SerializeField]

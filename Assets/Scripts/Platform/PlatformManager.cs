@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+//manages the platforms, their setup, pooling
 public class PlatformManager : MonoBehaviour
 {
     [SerializeField]
@@ -12,16 +12,16 @@ public class PlatformManager : MonoBehaviour
     [SerializeField]
     GameObject finishPrefab;
 
-    Level currentLevel;
 
-    [SerializeField]
-    int emptyPlatformCount = 1;
-
+    //starting position of the first platform
     [SerializeField]
     Vector3 firstPlatformPosition;
     List<Transform> platforms;
     Stack<GameObject> inactivePlatforms;
+    Level currentLevel;
 
+
+    int emptyPlatformCount = 1;
     int currentPlatformIndex = 0;
     GameObject finishPlatform;
 
@@ -44,6 +44,7 @@ public class PlatformManager : MonoBehaviour
         GameManager.Instance.OnGameRestart.AddListener(OnGameRestart);
     }
 
+    //creates platforms based on level data
     private void OnGameStart()
     {
         currentLevel = GameManager.Instance.GetCurrentLevel();
@@ -54,7 +55,7 @@ public class PlatformManager : MonoBehaviour
         Vector3 platformLength = platformPrefab.GetComponent<Platform>().getLength();
 
 
-
+        //create empty platforms at the beginning
         for (int i = 0; i < emptyPlatformCount; i++)
         {
             GameObject newPlatform = GetNewPlatform();
@@ -63,6 +64,7 @@ public class PlatformManager : MonoBehaviour
             platforms.Add(newPlatform.GetComponent<Transform>());
             platformPosition += platformLength;
         }
+        //create platforms with calculations and enemies
         foreach (PlatformSingle platform in individualPlatforms)
         {
             GameObject newPlatform = GetNewPlatform();
@@ -71,13 +73,14 @@ public class PlatformManager : MonoBehaviour
             platforms.Add(newPlatform.GetComponent<Transform>());
             platformPosition += platformLength;
         }
-
+        //create finish platform
         GameObject finishPlatform = GetFinishPlatform();
         finishPlatform.transform.position = platformPosition;
         
 
     }
 
+    // returns a platform from the pool or creates a new one
     private GameObject GetNewPlatform(){
         if(inactivePlatforms.Count == 0){
             GameObject newPlatform = Instantiate(platformPrefab);
@@ -90,6 +93,7 @@ public class PlatformManager : MonoBehaviour
         }
     }
 
+    //returns all platforms to the pool
     private void ReturnPlatforms(){
         foreach (Transform platform in platforms)
         {
@@ -102,6 +106,7 @@ public class PlatformManager : MonoBehaviour
     }
 
 
+    //returns the finish platform from the pool or creates a new one
     private GameObject GetFinishPlatform(){
         if(finishPlatform == null){
             finishPlatform = Instantiate(finishPrefab);
@@ -118,7 +123,7 @@ public class PlatformManager : MonoBehaviour
         ReturnPlatforms();
     }
 
-
+    //triggered by gate when player enters, recalculates health of the player
     public void OnCalculationEnter(bool left){
         Calculation selectedCalculation;
         if (left){
@@ -127,11 +132,9 @@ public class PlatformManager : MonoBehaviour
             selectedCalculation =  currentLevel.platforms[currentPlatformIndex].calculationRight;
         }
         PlayerGroupManager.Instance.GateEntered(selectedCalculation);
-
-
-        Debug.Log("Current Platform Index: " + currentPlatformIndex);
     }
 
+    //triggered by gate when player enters, disables enemies on the platform if the player survived
     public void OnEnemyGroupEnter(){
         bool playerSurvived = PlayerGroupManager.Instance.EnemyGateEntered(currentLevel.platforms[currentPlatformIndex].enemyCount);
         if(playerSurvived){

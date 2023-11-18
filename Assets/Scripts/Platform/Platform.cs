@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Platform : MonoBehaviour
@@ -21,13 +22,6 @@ public class Platform : MonoBehaviour
 
 
 
-    public void EnemyGateEntered(){
-        bool playerSurvived = PlayerGroupManager.Instance.EnemyGateEntered(enemyCount);
-        if(playerSurvived){
-            enemyGroupManager.DisableEnemies();
-        }
-    }
-
     public void SetPlatform(Calculation calculationLeft, Calculation calculationRight, int enemyCount, bool gateEnable)
     {
         this.leftCalculation = calculationLeft;
@@ -38,7 +32,7 @@ public class Platform : MonoBehaviour
             platformEntryCalculation.setCalculationEntryPoints(leftCalculation, rightCalculation);
             enemyGroupManager.setUpEnemies(true, enemyCount);
         }else{
-            platformEntryCalculation.disableCalculation();
+            platformEntryCalculation.disableGate();
             enemyGroupManager.setUpEnemies(false, enemyCount);
         }
     }
@@ -46,5 +40,13 @@ public class Platform : MonoBehaviour
     public Vector3 getLength(){
         return endPosition.position - starPosition.position;
     }
+
+    public void DisableEnemies(){
+        Debug.Log("Disable Enemies");
+        enemyGroupManager.DisableEnemies();
+    }
+
+
+
 
 }

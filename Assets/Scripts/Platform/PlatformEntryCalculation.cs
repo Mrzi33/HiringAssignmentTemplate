@@ -14,7 +14,7 @@ public class PlatformEntryCalculation : MonoBehaviour
         rightCalculation.SetCalculation(right);
     }
 
-    public void disableCalculation()
+    public void disableGate()
     {
         leftCalculation.gameObject.SetActive(false);
         rightCalculation.gameObject.SetActive(false);
@@ -22,7 +22,8 @@ public class PlatformEntryCalculation : MonoBehaviour
     }
 
     public void gateEntered(bool left){
-        disableCalculation();
+        disableGate();
+        PlatformManager.Instance.OnCalculationEnter(left);
     }
 
 

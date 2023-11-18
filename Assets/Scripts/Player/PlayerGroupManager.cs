@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerGroupManager : MonoBehaviour
 {
@@ -16,10 +17,10 @@ public class PlayerGroupManager : MonoBehaviour
     [SerializeField]
     Transform mainCharacter;
 
-    public int score = 1;
+    public int health = 1;
 
     //create signal when score is 0 or less
-    public event Action<bool> OnScoreChanged;
+    public UnityEvent OnHealthChanged;
 
 
 
@@ -38,7 +39,7 @@ public class PlayerGroupManager : MonoBehaviour
 
 
     public void GateEntered(Calculation calculation){
-        score = calculation.ApplyCaluclation(score);
+        health = calculation.ApplyCaluclation(health);
         ManageGroup();
     }
 
@@ -49,21 +50,21 @@ public class PlayerGroupManager : MonoBehaviour
         //enable side characters based on score, disable the rest
         for (int i = 0; i < groupCount; i++)
         {
-            if(i < score){
+            if(i < health){
                 playerSideCharacters[i].SetActive(true);
             }else{
                 playerSideCharacters[i].SetActive(false);
             }
         }
         //spawn new side characters if needed
-        if(groupCount < score){
-            for (int i = groupCount; i < score; i++)
+        if(groupCount < health){
+            for (int i = groupCount; i < health; i++)
             {
                 SpawnSideCharacter();
             }
         }
 
-        Debug.Log(score);
+        Debug.Log(health);
 
     }
 
@@ -76,17 +77,20 @@ public class PlayerGroupManager : MonoBehaviour
 
     public bool EnemyGateEntered(int enemyCount)
     {
-        score -= enemyCount;
+        health -= enemyCount;
         ManageGroup();
-        if(score <= 0){
-            OnScoreChanged?.Invoke(false);
+        if(health <= 0){
+            GameManager.Instance.GameOver();
             Debug.Log("Game Over");
             return false;
 
         }else{
-            OnScoreChanged?.Invoke(true);
+            OnHealthChanged?.Invoke();
             return true;
         }
     }
+
+
+
     
 }

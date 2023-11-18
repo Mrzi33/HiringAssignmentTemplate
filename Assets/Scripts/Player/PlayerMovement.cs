@@ -17,16 +17,29 @@ public class PlayerMovement : MonoBehaviour
     float leftSideLimit, rightSideLimit;
 
     //stop player from moving when game is over
-    public bool canMove = true;
+    public bool canMove = false;
+    Vector3 inicialPosition = Vector3.zero;
 
+    private void Awake() {
+        inicialPosition = transform.position;
+    }
     private void Start() {
-        PlayerGroupManager.Instance.OnScoreChanged += OnScoreChanged;
+        GameManager.Instance.OnGameStart.AddListener(OnGameStart);
+        GameManager.Instance.OnGameOver.AddListener(OnGameOver);
     }
 
-    private void OnScoreChanged(bool survived)
+
+    private void OnGameStart()
     {
-        if(!survived) canMove = false;
+        transform.position = inicialPosition;
+        canMove = true;
     }
+
+    private void OnGameOver()
+    {
+        canMove = false;
+    }
+
 
     private void Update()
     {

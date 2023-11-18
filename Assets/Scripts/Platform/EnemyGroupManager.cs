@@ -41,6 +41,7 @@ public class EnemyGroupManager : MonoBehaviour
     }
 
     public void DisableEnemies(){
+        Debug.Log("Disable Enemies");
         foreach (var enemy in enemies)
         {
             enemy.SetActive(false);

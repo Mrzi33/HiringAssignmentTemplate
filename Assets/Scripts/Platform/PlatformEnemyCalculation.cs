@@ -8,6 +8,6 @@ public class PlatformEnemyCalculation : MonoBehaviour
     Platform platform;
     private void OnTriggerEnter(Collider other) {
         this.gameObject.SetActive(false);
-        platform.EnemyGateEntered();
+        PlatformManager.Instance.OnEnemyGroupEnter();
     }
 }

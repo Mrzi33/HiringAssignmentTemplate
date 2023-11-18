@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d901e0fd6aa7d4b9f0f83b470ff604, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  platforms:
+  - calculationLeft: {fileID: 11400000, guid: 0eaf8e729e371924f95bcdac4f57b991, type: 2}
+    calculationRight: {fileID: 11400000, guid: 56f2410ee2c90eb40be3a803c3ee62f0, type: 2}
+    enemyCount: 4
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: edf9eab5dff31cf4d8a255406a87d528, type: 2}
+    calculationRight: {fileID: 11400000, guid: d2b0475e7f02dc44bbeddb8af3982192, type: 2}
+    enemyCount: 2
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 9264dcf25b337a5448ab7df838915f2f, type: 2}
+    calculationRight: {fileID: 11400000, guid: d241b6f9abc860a4292e9df83f4c3669, type: 2}
+    enemyCount: 25
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 0dfde3b4892275d4b97a3e20246096fc, type: 2}
+    calculationRight: {fileID: 11400000, guid: 2050d8495d84e6846a45d267907d4f66, type: 2}
+    enemyCount: 0
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: d2b0475e7f02dc44bbeddb8af3982192, type: 2}
+    calculationRight: {fileID: 11400000, guid: 7a88a48ac18959f4682c52a82eff28d2, type: 2}
+    enemyCount: 3
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 14807d1dc4dc56544af134e32d2e0e0c, type: 2}
+    calculationRight: {fileID: 11400000, guid: 1508250bc0b7d8240a3fee2af24d5f3c, type: 2}
+    enemyCount: 15
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 9264dcf25b337a5448ab7df838915f2f, type: 2}
+    calculationRight: {fileID: 11400000, guid: 480738ed1ab363e488cb6852a182ef6d, type: 2}
+    enemyCount: 58
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 0e1ab2eab1cb082478ace798063b4cf8, type: 2}
+    calculationRight: {fileID: 11400000, guid: be91967291451c24293a7ef25a97ff54, type: 2}
+    enemyCount: 11
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: b83c44422e0786d49a331263e62166f0, type: 2}
+    calculationRight: {fileID: 11400000, guid: 1508250bc0b7d8240a3fee2af24d5f3c, type: 2}
+    enemyCount: 140
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 26050abef5fd3db40b4b038d7c984e69, type: 2}
+    calculationRight: {fileID: 11400000, guid: 47cf4af6e7c13ef43b799e6b8dfde54f, type: 2}
+    enemyCount: 50
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: bb591c8fb9eb97c4892b39d78f4c3443, type: 2}
+    calculationRight: {fileID: 11400000, guid: 7a88a48ac18959f4682c52a82eff28d2, type: 2}
+    enemyCount: 0
+    gateEnable: 0
+  emptyPlatformCount: 2

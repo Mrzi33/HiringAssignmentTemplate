@@ -7,7 +7,11 @@ using UnityEngine;
 enum CALCULATIONTYPE{
     PLUS,
     MINUS,
-    EQUAL
+    EQUAL,
+    DIVIDE,
+    MULTIPLY,
+    MODULO,
+    
 }
 
 
@@ -30,6 +34,12 @@ public class Calculation : ScriptableObject{
                 return Minus(value);
             case CALCULATIONTYPE.EQUAL:
                 return Equal(value);
+            case CALCULATIONTYPE.DIVIDE:
+                return Divide(value);
+            case CALCULATIONTYPE.MULTIPLY:
+                return Multiply(value);
+            case CALCULATIONTYPE.MODULO:
+                return Modulo(value);
             default:
                 return 0;
         }
@@ -46,6 +56,16 @@ public class Calculation : ScriptableObject{
 
     private int Equal(int value){
         return (int)Math.Floor( modifier);
+    }
+
+    private int Divide(int value){
+        return (int)Math.Floor( value / modifier);
+    }
+    private int Multiply(int value){
+        return (int)Math.Floor( value * modifier);
+    }
+    private int Modulo(int value){
+        return (int)Math.Floor( value % modifier);
     }
 
 

@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platforms:
   - calculationLeft: {fileID: 11400000, guid: 0eaf8e729e371924f95bcdac4f57b991, type: 2}
-    calculationRight: {fileID: 11400000, guid: 79b5ec4576a09ae41845b3df6e8664ba, type: 2}
+    calculationRight: {fileID: 11400000, guid: 47968f1a8cc98ef419d43d20e3c6d382, type: 2}
     enemyCount: 2
     gateEnable: 1
-  - calculationLeft: {fileID: 11400000, guid: 79b5ec4576a09ae41845b3df6e8664ba, type: 2}
+  - calculationLeft: {fileID: 11400000, guid: d2b0475e7f02dc44bbeddb8af3982192, type: 2}
+    calculationRight: {fileID: 11400000, guid: 78c6535c5860a29409c69948d34fd2b1, type: 2}
+    enemyCount: 2
+    gateEnable: 1
+  - calculationLeft: {fileID: 11400000, guid: 56f2410ee2c90eb40be3a803c3ee62f0, type: 2}
     calculationRight: {fileID: 11400000, guid: 0eaf8e729e371924f95bcdac4f57b991, type: 2}
-    enemyCount: 4
+    enemyCount: 6
     gateEnable: 1
   emptyPlatformCount: 1

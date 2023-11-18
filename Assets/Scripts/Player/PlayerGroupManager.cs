@@ -88,9 +88,9 @@ public class PlayerGroupManager : MonoBehaviour
 
     public bool EnemyGateEntered(int enemyCount)
     {
-        health -= enemyCount;
-        ManageGroup();
-        if(health <= 0){
+        //health -= enemyCount;
+        //ManageGroup();
+        if(health <= enemyCount){
             GameManager.Instance.GameOver();
             return false;
 

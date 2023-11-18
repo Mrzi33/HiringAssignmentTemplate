@@ -49,8 +49,8 @@ MonoBehaviour:
     calculationRight: {fileID: 11400000, guid: 4f41f8ac38b7f22409cf2ab7988f8db5, type: 2}
     enemyCount: 8
     gateEnable: 1
-  - calculationLeft: {fileID: 11400000, guid: 56f2410ee2c90eb40be3a803c3ee62f0, type: 2}
+  - calculationLeft: {fileID: 11400000, guid: 931e1142d8a698349a124fecf57a1de9, type: 2}
     calculationRight: {fileID: 11400000, guid: fe37a49c750b3b0409e2541be0a65383, type: 2}
-    enemyCount: 0
+    enemyCount: 17
     gateEnable: 1
-  emptyPlatformCount: 1
+  emptyPlatformCount: 2

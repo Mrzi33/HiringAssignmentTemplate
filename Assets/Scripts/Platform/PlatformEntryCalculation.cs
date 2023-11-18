@@ -12,6 +12,13 @@ public class PlatformEntryCalculation : MonoBehaviour
     {
         leftCalculation.SetCalculation(left);
         rightCalculation.SetCalculation(right);
+        enableGate();
+    }
+
+    public void enableGate()
+    {
+        leftCalculation.gameObject.SetActive(true);
+        rightCalculation.gameObject.SetActive(true);
     }
 
     public void disableGate()

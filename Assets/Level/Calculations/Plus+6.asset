@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cff83c90f143ad48891fe19f337e90a, type: 3}
   m_Name: Plus+6
   m_EditorClassIdentifier: 
-  description: +5
-  modifier: 5
+  description: +6
+  modifier: 6
   type: 0

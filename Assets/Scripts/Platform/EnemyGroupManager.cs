@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyGroupManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject enemyPrefab;
+
     List<GameObject> enemies = new List<GameObject>();
     
     int enemyCount = 0;
@@ -33,7 +32,8 @@ public class EnemyGroupManager : MonoBehaviour
 
         for(int i = 0; i < enemyCount; i++){
             Vector3 spawnPosition = new Vector3(Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x), 0.5f, Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z));
-            GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            GameObject enemy = EnemyCharacterManager.Instance.GetEnemyCharacter();
+            enemy.transform.position = spawnPosition;
             enemy.transform.parent = enemyGroup.transform;
             enemies.Add(enemy);
         }
@@ -41,11 +41,11 @@ public class EnemyGroupManager : MonoBehaviour
     }
 
     public void DisableEnemies(){
-        Debug.Log("Disable Enemies");
         foreach (var enemy in enemies)
         {
-            enemy.SetActive(false);
+            EnemyCharacterManager.Instance.ReturnEnemyCharacter(enemy);
         }
+        enemies.Clear();
     }
 
 

@@ -42,9 +42,9 @@ public class Platform : MonoBehaviour
     }
 
     public void DisableEnemies(){
-        Debug.Log("Disable Enemies");
         enemyGroupManager.DisableEnemies();
     }
+
 
 
 

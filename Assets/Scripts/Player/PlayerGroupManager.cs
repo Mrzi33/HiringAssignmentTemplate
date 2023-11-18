@@ -36,6 +36,13 @@ public class PlayerGroupManager : MonoBehaviour
 
     private void Start() {
         GameManager.Instance.OnGameStart.AddListener(OnGameStart);
+        GameManager.Instance.OnGameOver.AddListener(OnGameOver);
+    }
+
+    private void OnGameOver()
+    {
+        health = 0;
+        ManageGroup();
     }
 
     private void OnGameStart()
@@ -58,6 +65,9 @@ public class PlayerGroupManager : MonoBehaviour
         for (int i = 0; i < groupCount; i++)
         {
             if(i < health){
+                if(!playerSideCharacters[i].activeSelf){
+                    playerSideCharacters[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+                }
                 playerSideCharacters[i].SetActive(true);
             }else{
                 playerSideCharacters[i].SetActive(false);

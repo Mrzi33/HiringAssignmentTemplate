@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformEnemyCalculation : MonoBehaviour
+public class PlatformEnemyGate : MonoBehaviour
 {
     [SerializeField]
     Platform platform;

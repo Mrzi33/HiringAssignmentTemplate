@@ -177,11 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8d8db15f7b7c34abe011d0e1cec66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1870518472055408538, guid: 213da8ff003233c43b105f05766c488c,
-    type: 3}
   spawnArea: {fileID: 1870282514651997849}
   enemyGroup: {fileID: 3308746111485439637}
-  platformEnemyCalculation: {fileID: 9172479733279936327}
+  platformEnemyGate: {fileID: 9172479733279936327}
 --- !u!1 &3308746111485439637
 GameObject:
   m_ObjectHideFlags: 0

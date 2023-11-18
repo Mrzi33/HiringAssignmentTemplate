@@ -13,17 +13,17 @@ public class EnemyGroupManager : MonoBehaviour
     [SerializeField]
     GameObject enemyGroup;
     [SerializeField]
-    PlatformEnemyCalculation platformEnemyCalculation;
+    PlatformEnemyGate platformEnemyGate;
 
 
 
     public void setUpEnemies(bool enable, int enemyCount){
         this.enemyCount = enemyCount;
         if(enable){
-            platformEnemyCalculation.gameObject.SetActive(true);
+            platformEnemyGate.gameObject.SetActive(true);
             SpawnEnemies();
         }else{
-            platformEnemyCalculation.gameObject.SetActive(false);
+            platformEnemyGate.gameObject.SetActive(false);
         }
 
     }

@@ -457,8 +457,11 @@ MonoBehaviour:
   enableGate: 1
   leftCalculation: {fileID: 11400000, guid: 6b94ce1a6bc369745b3fbb6533286ca8, type: 2}
   rightCalculation: {fileID: 11400000, guid: d513de0af55a6594cbe86568d7240867, type: 2}
+  platformEntryCalculation: {fileID: 9149461437553680321}
   enemyGroupManager: {fileID: 8484560630411832171}
   enemyCount: 1
+  starPosition: {fileID: 3281988895510757120}
+  endPosition: {fileID: 835642644126250772}
 --- !u!1 &7097847246060248783
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +740,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1664995416493886761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9149461437553680321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7629707109050880744, guid: b69c0f2b2583fed448c199ff336cb655,
+    type: 3}
+  m_PrefabInstance: {fileID: 1664995416493886761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77152b47c5f6cb54aaea13b88c283d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6837867148038105959
 PrefabInstance:
   m_ObjectHideFlags: 0
